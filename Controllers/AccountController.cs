@@ -81,7 +81,7 @@ namespace WebApplication1.Controllers
                         ///
                         var roles = await _userManager.GetRolesAsync(user);
 
-                        var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT :Secret"]));
+                        var Key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
 
                         SigningCredentials signincred =
                             new SigningCredentials(Key, SecurityAlgorithms.HmacSha256);

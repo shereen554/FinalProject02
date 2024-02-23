@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.DTOS
 {
@@ -12,6 +13,10 @@ namespace WebApplication1.DTOS
         [Required]
         public string Password { get; set; }
         public string Address { get; set; }
+        public bool Gender { get; set; }
+        public byte[]? Image { get; set; }
+        public string pharmDoctor { get; set; } = null!;
+        public int UPharmacyId { get; set; }
 
     }
 }

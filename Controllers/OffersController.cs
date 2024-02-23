@@ -12,7 +12,8 @@ namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = ClsRole.RoleAdmin)]
+    [Authorize(Roles = ClsRole.RolePharmacy)]
     public class OffersController : ControllerBase
     {
         private readonly RequestMedicinesContext _context;
@@ -89,7 +90,7 @@ namespace WebApplication1.Controllers
         {
           if (_context.Offers == null)
           {
-              return Problem("Entity set 'RequestMedicinesContext.Offers'  is null.");
+              return Problem("Item not found");
           }
             _context.Offers.Add(offer);
             try

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Models;
 
@@ -11,9 +12,11 @@ using WebApplication1.Models;
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(RequestMedicinesContext))]
-    partial class RequestMedicinesContextModelSnapshot : ModelSnapshot
+    [Migration("20240222075426_addcolum")]
+    partial class addcolum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,36 +104,6 @@ namespace WebApplication1.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "cf6eac61-881a-4d88-b782-7d49fe2f7565",
-                            ConcurrencyStamp = "fea1e683-02f5-475f-95df-01087101bf43",
-                            Name = "Admin",
-                            NormalizedName = "admin"
-                        },
-                        new
-                        {
-                            Id = "1ad67312-e72b-4cef-9386-c42d147fff0c",
-                            ConcurrencyStamp = "15ef13cb-d033-4846-a7e8-31f0a49a8009",
-                            Name = "Customer",
-                            NormalizedName = "customer"
-                        },
-                        new
-                        {
-                            Id = "a22d1956-3217-4910-8361-0c519c47e910",
-                            ConcurrencyStamp = "4dc52ba8-d7e8-4e62-86e5-588e63960ade",
-                            Name = "Pharmacy",
-                            NormalizedName = "pharmacy"
-                        },
-                        new
-                        {
-                            Id = "b52cc945-28bf-47e2-8534-c56a9880a9fa",
-                            ConcurrencyStamp = "c431e8e7-f7a8-4aae-b79e-baf3f957e7d7",
-                            Name = "Delivery",
-                            NormalizedName = "delivery"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -330,9 +303,6 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
-
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -362,16 +332,9 @@ namespace WebApplication1.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("UPharmacyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("pharmDoctor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

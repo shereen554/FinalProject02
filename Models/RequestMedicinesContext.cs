@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Controllers;
@@ -46,6 +47,39 @@ public partial class RequestMedicinesContext : IdentityDbContext<ApplicationUser
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<IdentityRole>().HasData(
+
+            new IdentityRole()
+            {
+                Id=Guid.NewGuid().ToString(),
+                Name ="Admin",
+                NormalizedName="admin",
+                ConcurrencyStamp= Guid.NewGuid().ToString()
+            },
+              new IdentityRole()
+              {
+                  Id = Guid.NewGuid().ToString(),
+                  Name = "Customer",
+                  NormalizedName = "customer",
+                  ConcurrencyStamp = Guid.NewGuid().ToString()
+              },
+                new IdentityRole()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = "Pharmacy",
+                    NormalizedName = "pharmacy",
+                    ConcurrencyStamp = Guid.NewGuid().ToString()
+                },
+                  new IdentityRole()
+                  {
+                      Id = Guid.NewGuid().ToString(),
+                      Name = "Delivery",
+                      NormalizedName = "delivery",
+                      ConcurrencyStamp = Guid.NewGuid().ToString()
+                  }
+            );
+
         modelBuilder.Entity<Customer>(entity =>
         {
             entity.HasKey(e => e.CustomerId).HasName("PK__Customer__8CB286B97F8A9188");
