@@ -15,8 +15,6 @@ namespace WebApplication1.DTOS
         public string Address { get; set; }
         public bool Gender { get; set; }
         public byte[]? Image { get; set; }
-        public string pharmDoctor { get; set; } = null!;
-        public int UPharmacyId { get; set; }
-
+       
     }
 }
