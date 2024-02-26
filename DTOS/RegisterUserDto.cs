@@ -14,7 +14,7 @@ namespace WebApplication1.DTOS
         public string Password { get; set; }
         public string Address { get; set; }
         public bool Gender { get; set; }
-        public byte[]? Image { get; set; }
+        public byte[]? Commerical_Register { get; set; }
        
     }
 }
