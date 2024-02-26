@@ -4,7 +4,7 @@ namespace WebApplication1.Models
 {
     public class ApplicationUser:IdentityUser
     {
-        public byte[]? Image { get; set; }
+        public byte[]? Commerical_Register { get; set; }
        
     }
 }
